@@ -14,6 +14,7 @@
 <meta property="og:url" content="https://yuseres.github.io/trirongames/" />
 <meta property="og:image" content="https://yuseres.github.io/trirongames/games/color-boom/assets/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" href="assets/TrironGamesLogo2.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -395,27 +396,29 @@
       return String(name || '?').trim().charAt(0).toUpperCase();
     }
 
-    /* ---- Games grid: live = feature card, dev/planned = codename cards ---- */
+    /* ---- Games grid: games with a banner = feature card, others = codename cards ---- */
     var grid = document.getElementById('gamesGrid');
     var codeGrid = document.getElementById('codenameGrid');
     if (grid && codeGrid) {
       var liveHTML = '', codeHTML = '';
       GAMES.forEach(function (g) {
         var accent = 'style="--game-accent:' + esc(g.accent || '') + '"';
-        if (g.status === 'live') {
+        if (g.banner) {
+          var isLive = g.status === 'live';
           liveHTML +=
             '<article class="game-card" ' + accent + '>' +
               '<div class="shot">' +
-                (g.banner ? '<img src="' + esc(g.banner) + '" alt="' + esc(g.name) + ' screenshot" loading="lazy" decoding="async" />' : '') +
+                '<img src="' + esc(g.banner) + '" alt="' + esc(g.name) + ' screenshot" loading="lazy" decoding="async" />' +
               '</div>' +
               '<div class="info">' +
                 '<div class="icon-row">' +
                   '<div class="mini-mark">' + (g.icon ? '<img src="' + esc(g.icon) + '" alt="" />' : esc(initials(g.name))) + '</div>' +
                   '<h3>' + esc(g.name) + '</h3>' +
                 '</div>' +
-                '<span class="status-pill is-live">' + esc(STATUS_LABEL.live) + '</span>' +
+                '<span class="status-pill' + (isLive ? ' is-live' : '') + '">' + esc(STATUS_LABEL[g.status] || g.status) + '</span>' +
                 '<p class="blurb">' + esc(g.blurb) + '</p>' +
-                (g.url ? '<a class="learn" href="' + esc(g.url) + '">' + esc(g.cta || 'Learn more') + ' <span class="arrow">→</span></a>' : '') +
+                (g.url ? '<a class="learn" href="' + esc(g.url) + '">' + esc(g.cta || 'Learn more') + ' <span class="arrow">→</span></a>' :
+                  '<a class="learn" href="#notify">Notify me <span class="arrow">→</span></a>') +
               '</div>' +
             '</article>';
         } else {

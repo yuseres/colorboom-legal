@@ -33,7 +33,7 @@ window.TRIRON_GAMES = [
     name: "Animals Merge",
     status: "dev",
     accent: "#5AA17A",
-    icon: "games/animals-merge/assets/icon.png",
+    icon: "games/animals-merge/assets/icon.jpg",
     banner: "games/animals-merge/assets/banner.jpg",
     genre: "Cozy merge puzzler",
     blurb: "Merge cute critters into bigger, rarer ones in this cozy merge puzzler. Still cooking — a first look is on the way.",
