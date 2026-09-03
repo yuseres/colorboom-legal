@@ -13,11 +13,8 @@
 window.TRIRON_TEAM = [
   {
     name: "Clau",
-    role: "Dev / Creator",
-    bio: "Started the whole thing on a dare and never really stopped. Builds, breaks and ships.",
     photo: "assets/team/clau.png",
     initials: "CL",
-    accent: "#F97A2E",
-    building: "Every game"
+    accent: "#F97A2E"
   }
 ];

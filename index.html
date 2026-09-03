@@ -35,12 +35,10 @@
   .home-hero::after  { width: 340px; height: 340px; bottom: -120px; right: -90px; background: radial-gradient(circle, #A9C7B4, transparent 70%); }
   .home-hero > * { position: relative; z-index: 1; }
   .home-hero .mark-big {
-    width: 96px; height: 96px; border-radius: 26px; margin: 0 auto 26px;
-    overflow: hidden;
+    width: 132px; height: 132px; margin: 0 auto 22px;
     display: grid; place-items: center; font-size: 50px; color: #fff;
-    box-shadow: var(--shadow-lg); transform: rotate(-5deg); background: var(--card);
   }
-  .home-hero .mark-big img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .home-hero .mark-big img { width: 100%; height: 100%; object-fit: contain; display: block; }
   .home-hero h1 { font-size: clamp(3.1rem, 7.6vw, 6.6rem); color: var(--ink); }
   .home-hero .tag {
     margin: 20px auto 0; max-width: 48ch; font-size: clamp(1.05rem, 1.6vw, 1.3rem);
@@ -155,7 +153,8 @@
   .notify-note { margin-top: 16px; font-size: 12.5px; font-weight: 700; color: var(--ink-3); }
 
   /* ---------- Team roster ---------- */
-  .roster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  .roster { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-top: 40px; }
+  .roster .member { flex: 0 1 320px; }
   .member {
     background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg);
     box-shadow: var(--shadow-md); padding: 34px 26px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -427,8 +426,8 @@
         return '<div class="member" style="--game-accent:' + esc(m.accent || '') + '">' +
                  '<div class="av-ring">' + avatar + '</div>' +
                  '<b>' + esc(m.name) + '</b>' +
-                 '<span class="role">' + esc(m.role) + '</span>' +
-                 '<p class="bio">' + esc(m.bio) + '</p>' +
+                 (m.role ? '<span class="role">' + esc(m.role) + '</span>' : '') +
+                 (m.bio ? '<p class="bio">' + esc(m.bio) + '</p>' : '') +
                  (m.building ? '<span class="building">Building <span>' + esc(m.building) + '</span></span>' : '') +
                '</div>';
       }).join('');
