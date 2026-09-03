@@ -22,7 +22,7 @@ window.TRIRON_GAMES = [
     status: "live",
     accent: "#F97A2E",
     icon: "games/color-boom/assets/logo.png",
-    banner: "games/color-boom/assets/promo-art.jpg",
+    banner: "games/color-boom/assets/promo-art.png",
     genre: "Cozy color-by-number",
     blurb: "The cozy color-by-number game where every tile you fill bursts into art. Paint, collect rewards, and climb the weekly ranks.",
     url: "games/color-boom/index.html",
@@ -33,24 +33,10 @@ window.TRIRON_GAMES = [
     name: "Animals Merge",
     status: "dev",
     accent: "#5AA17A",
-    icon: "games/animals-merge/assets/icon.jpg",
-    banner: "games/animals-merge/assets/banner.jpg",
+    icon: "games/animals-merge/assets/icon.png",
+    banner: "games/animals-merge/assets/banner.png",
     genre: "Cozy merge puzzler",
     blurb: "Merge cute critters into bigger, rarer ones in this cozy merge puzzler. Still cooking — a first look is on the way.",
-    url: ""
-  },
-  {
-    // Placeholder for the second incoming title — swap name/genre/blurb/accent
-    // once it's announced. Keeping it here reserves its slot in the grid,
-    // roadmap and footer.
-    slug: "codename-vector",
-    name: "Codename Vector",
-    status: "planned",
-    accent: "#8E7BC4",
-    icon: "",
-    banner: "",
-    genre: "Something new, drawn in vectors",
-    blurb: "Our next experiment — a crisp, vector-styled world we're not ready to show just yet. Sign up to be first to see it.",
     url: ""
   }
 ];
