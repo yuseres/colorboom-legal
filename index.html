@@ -136,20 +136,6 @@
   .stage-game span { display: block; font-size: .9rem; font-weight: 600; color: var(--ink-2); margin-top: 2px; }
   .stage-empty { color: var(--ink-3); font-weight: 700; font-size: .95rem; padding: 12px 0; }
 
-  /* ---------- Dev log — dark contrasting band ---------- */
-  .devlog-band { background: var(--ink); padding: clamp(56px, 8vw, 100px) 0; margin-top: clamp(56px, 8vw, 100px); }
-  .devlog-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
-  .devlog-nav { display: flex; gap: 10px; }
-  .devlog-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #fff; font-size: 20px; cursor: pointer; transition: .2s; }
-  .devlog-arrow:hover { background: rgba(255,255,255,.18); }
-  .devlog-row { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; scrollbar-width: none; }
-  .devlog-row::-webkit-scrollbar { display: none; }
-  .devlog-card { scroll-snap-align: start; flex: 0 0 min(300px, 84vw); background: var(--card); border-radius: var(--r-lg); padding: 26px 24px; display: flex; flex-direction: column; gap: 10px; box-shadow: var(--shadow-md); }
-  .devlog-card .dl-em { font-size: 30px; }
-  .devlog-card h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--ink); }
-  .devlog-card p { font-size: .96rem; color: var(--ink-2); font-weight: 600; line-height: 1.55; }
-  .devlog-card p a { color: var(--primary); font-weight: 800; }
-
   /* ---------- Notify-me hook ---------- */
   .notify-panel {
     background: linear-gradient(150deg, var(--card) 0%, var(--card-2) 100%);
@@ -280,43 +266,6 @@
       </form>
       <p class="notify-done" id="notifyDone">Thanks — you're on the list. We'll be in touch. 🎉</p>
       <p class="notify-note">No spam, ever. We'll only email about new game launches.</p>
-    </div>
-  </div>
-</section>
-
-<section class="devlog-band" id="devlog">
-  <div class="wrap">
-    <div class="devlog-head">
-      <div>
-        <span class="eyebrow" style="color:#fff;">Dev log</span>
-        <h2 style="font-size:clamp(1.9rem,3.6vw,2.6rem); margin-top:14px; color:#fff;">Building it in the open.</h2>
-      </div>
-      <div class="devlog-nav">
-        <button class="devlog-arrow" id="devlogPrev" aria-label="Previous">‹</button>
-        <button class="devlog-arrow" id="devlogNext" aria-label="Next">›</button>
-      </div>
-    </div>
-    <div class="devlog-row" id="devlogRow">
-      <article class="devlog-card">
-        <span class="dl-em">🧑‍💻</span>
-        <h3>One-person studio</h3>
-        <p>Every screen, palette and sound is made by one person juggling a day job and late nights — no team, no publisher, no investors.</p>
-      </article>
-      <article class="devlog-card">
-        <span class="dl-em">🎨</span>
-        <h3>1,200+ canvases</h3>
-        <p>Color Boom's library keeps growing every week, with new color-by-number scenes across mandalas, florals and seasonal drops.</p>
-      </article>
-      <article class="devlog-card">
-        <span class="dl-em">🛠️</span>
-        <h3>Always shipping</h3>
-        <p>Bugs get fixed fast and features ship often — these games are actively cooked, not left to simmer.</p>
-      </article>
-      <article class="devlog-card">
-        <span class="dl-em">💌</span>
-        <h3>Say hi</h3>
-        <p>Got feedback, found a bug, or just want to say hi? <a href="mailto:trirongames@gmail.com">trirongames@gmail.com</a> always gets read.</p>
-      </article>
     </div>
   </div>
 </section>
@@ -494,17 +443,6 @@
           : '<span style="color:var(--ink-3);font-weight:700;">' + esc(g.name) + ' <small>(soon)</small></span>') + '</li>';
       }).join('');
     }
-
-    /* ---- Dev log arrows ---- */
-    (function () {
-      var row = document.getElementById('devlogRow');
-      var prev = document.getElementById('devlogPrev');
-      var next = document.getElementById('devlogNext');
-      if (!row || !prev || !next) return;
-      var step = function () { return Math.min(300, row.clientWidth * 0.85); };
-      prev.addEventListener('click', function () { row.scrollBy({ left: -step(), behavior: 'smooth' }); });
-      next.addEventListener('click', function () { row.scrollBy({ left: step(), behavior: 'smooth' }); });
-    })();
 
     /* ---- Notify-me (inert placeholder) ---- */
     var form = document.getElementById('notifyForm');
